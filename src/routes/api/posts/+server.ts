@@ -6,7 +6,7 @@ export const GET: RequestHandler = async (event) => {
 	console.log(event)
 
 	const posts = await db.post.findMany({
-		take: Math.round(Math.random() * 30) // show a random number of posts
+		take: Math.max(1, Math.round(Math.random() * 30)) // show a random number of posts, but at least 1 
 	})
 
 	event.setHeaders({

@@ -15,3 +15,5 @@ Server-side rendered pages are better for SEO since the code will be available f
 While I can fetch data from a local API in a `+page.svelte` or `+layout.svelte`, this won't be great for SEO and incurs a HTTP request for every page load.
 
 Instead, I should use universal load functions where possible, which can be defined as `+page/layout.ts` or server-side load functions (for sensitive information and DB calls) in `page/layout.server.ts`. These can be made available to the sibling page/layout using `data: PageData` and destructured for ease of use.
+
+If you use in `+layout.server.ts`

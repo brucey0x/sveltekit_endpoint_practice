@@ -7,9 +7,10 @@
 </script>
 
 <div class="flex flex-col items-start text-white">
-	<h1 class="self-center text-2xl">Posts</h1>
+	<h1 class="text-2xl">Browse posts</h1>
+	<p class="my-4">You can browse posts here.</p>
 
-	<p class="my-4 text-lg">Showing {posts.length} posts:</p>
+	<!-- <p class="my-4 text-lg">Showing {posts.length} posts:</p>
 
 	{#each posts as { slug, title, createdAt }}
 		<div class="my-1 flex">
@@ -26,5 +27,5 @@
 				</a>
 			</ul>
 		</div>
-	{/each}
+	{/each} -->
 </div>

@@ -1,16 +1,23 @@
 <script lang="ts">
+	import { invalidate } from "$app/navigation"
 	import type { PageData } from "./$types"
 
 	export let data: PageData
 
 	$: ({ posts } = data) // reactive destructuring of posts. The parentheses are necessary.
+
+	function handleReset() {
+		invalidate("posts")
+	}
 </script>
 
 <div class="flex flex-col items-start text-white">
 	<h1 class="text-2xl">Browse posts</h1>
 	<p class="my-4">You can browse posts here.</p>
 
-	<!-- <p class="my-4 text-lg">Showing {posts.length} posts:</p>
+	<button class="w-1/6 border p-1" on:click={handleReset}>Reset</button>
+
+	<p class="my-4 text-lg">Showing {posts.length} posts:</p>
 
 	{#each posts as { slug, title, createdAt }}
 		<div class="my-1 flex">
@@ -27,5 +34,5 @@
 				</a>
 			</ul>
 		</div>
-	{/each} -->
+	{/each}
 </div>

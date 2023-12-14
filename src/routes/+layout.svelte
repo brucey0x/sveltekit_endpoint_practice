@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { page } from "$app/stores"
 	import "../app.css"
 </script>
+
+<svelte:head>
+	<!-- Update the title based on the post the page may be on -->
+	<title>{$page.data.post?.title}</title>
+</svelte:head>
 
 <div class="h-screen w-screen overflow-auto bg-gradient-to-br from-slate-900 to-pink-400">
 	<nav class="text text-bold m-8 flex flex-row gap-4 font-semibold text-white">

@@ -1,3 +1,7 @@
+# Challenges
+
+- [ ] Add Livia? authentication using the `load` function with my new understanding. Learn what `locals` do and how I can use these to access the user and session throughout the application.
+
 # APIs
 
 By creating a `/routes/api/[name]/+server.ts` file I'm able to set up a GET and POST HTTP method.
@@ -17,3 +21,5 @@ While I can fetch data from a local API in a `+page.svelte` or `+layout.svelte`,
 Instead, I should use universal load functions where possible, which can be defined as `+page/layout.ts` or server-side load functions (for sensitive information and DB calls) in `page/layout.server.ts`. These can be made available to the sibling page/layout using `data: PageData` and destructured for ease of use.
 
 If you use in `+layout.server.ts`
+
+Left off [here](https://youtu.be/rsmLu5nmh4g?si=LuMiPLwLFVGpkBAH&t=4055) in the tutorial

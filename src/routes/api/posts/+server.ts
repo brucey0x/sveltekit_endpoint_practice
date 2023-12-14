@@ -2,16 +2,17 @@ import db from "$lib/database"
 import { json } from "@sveltejs/kit"
 import type { RequestHandler } from "./$types"
 
-export const GET: RequestHandler = async (event) => {
-	console.log(event)
+export const GET: RequestHandler = async ({ url }) => {
+	// Extract these searchParams from the url
+	const limit = Number(url.searchParams.get("limit") ?? 30)
+	const order = url.searchParams.get("order") ?? "asc"
 
+	// filter db search based on searchParams, making the API more interactive
 	const posts = await db.post.findMany({
-		take: Math.max(1, Math.round(Math.random() * 30)) // show a random number of posts, but at least 1 
-	})
-
-	event.setHeaders({
-		// "Cache-Control": "max-age=60" // set cache to refresh every minute
-		"Cache-Control": "public, max-age=0, s-max-age=60" // set cache to refresh every minute
+		orderBy: {
+			id: order
+		},
+		take: limit
 	})
 
 	return json(posts)

@@ -1,25 +1,17 @@
 <script lang="ts">
 	import { page } from "$app/stores"
+	import NavHeader from "$lib/components/NavHeader.svelte"
 	import "../app.css"
 </script>
 
 <svelte:head>
-	<!-- Update the title based on the post the page may be on -->
-	<title>{$page.data.post?.title}</title>
+	<title>{$page.data.post?.title ?? "Endpoint Practice"}</title>
 </svelte:head>
 
-<div class="h-screen w-screen overflow-auto bg-gradient-to-br from-slate-900 to-pink-400">
-	<nav class="text text-bold m-8 flex flex-row gap-4 font-semibold text-white">
-		<ul class="flex gap-4">
-			<li>
-				<a href="/" class="group hover:text-purple-500">Home</a>
-			</li>
-			<li>
-				<a href="/posts" class="group hover:text-purple-500">Posts</a>
-			</li>
-		</ul>
-	</nav>
-
+<div
+	class="h-screen w-screen overflow-auto bg-gradient-to-br from-slate-900 to-pink-400 text-white"
+>
+	<NavHeader />
 	<div class="m-8">
 		<slot />
 	</div>

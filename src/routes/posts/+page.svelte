@@ -7,6 +7,7 @@
 	$: ({ posts } = data) // reactive destructuring of posts. The parentheses are necessary.
 
 	function handleReset() {
+		// This invalidates the 'depends' in the load function in `src/routes/posts/+page.ts`
 		invalidate("posts")
 	}
 </script>

@@ -1,4 +1,8 @@
 <script lang="ts">
+	import type { PageData } from "./$types"
+
+	export let data: PageData
+
 	async function subscribe(event: Event) {
 		const form = event.target as HTMLFormElement
 		const data = new FormData(form)
@@ -22,7 +26,11 @@
 </script>
 
 <div class="flex flex-col items-center justify-center text-white">
-	<h1 class="text-2xl text-white">Welcome!</h1>
+	<h1 class="my-2 text-2xl text-white">Welcome!</h1>
+	{#if data.session}
+		<p>User ID: {data.userId}</p>
+		<p>Username: {data.username}</p>
+	{/if}
 
 	<h1 class="my-2 mt-8 text-xl shadow">Newsletter</h1>
 

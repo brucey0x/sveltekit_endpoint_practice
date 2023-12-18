@@ -5,10 +5,8 @@ import type { PageServerLoad } from "./$types"
 export const load: PageServerLoad = async ({ locals }) => {
 	const session = await locals.auth.validate()
 	if (session) {
-		redirect(302, "/")
-		return {
-			username: session.user.username,
-			userId: session.user.userId
-		}
+		throw redirect(302, "/")
+	} else {
+		return {}
 	}
 }

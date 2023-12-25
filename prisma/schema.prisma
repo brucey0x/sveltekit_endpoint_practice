@@ -19,12 +19,13 @@ model Post {
 
 model User {
   id                       String                     @id @unique
-  username                 String                     @unique
-  email                    String                     @unique
-  email_verified           Boolean // Might have to be int since SQLite doesn't support bool and only int, however I think Prisma can convert this for me
+  username                 String?                    @unique
+  email                    String?                    @unique
+  email_verified           Boolean? // Might have to be int since SQLite doesn't support bool and only int, however I think Prisma can convert this for me
   key                      Key[]
   auth_session             Session[]
   Email_Verification_Token Email_Verification_Token[]
+  Password_Reset_Token     Password_Reset_Token[]
 }
 
 model Session {
@@ -47,6 +48,13 @@ model Key {
 }
 
 model Email_Verification_Token {
+  id      String @id
+  expires BigInt
+  user_id String
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Password_Reset_Token {
   id      String @id
   expires BigInt
   user_id String

@@ -12,15 +12,18 @@ export const actions: Actions = {
 		const password = formData.get("password")
 
 		// Maybe use Zod for authentication checks instead?
-		if (typeof username !== "string" || username.length < 4 || username.length > 31) {
+		if (
+			username &&
+			(typeof username !== "string" || username.length < 4 || username.length > 31)
+		) {
 			return fail(400, {
 				message: "Invalid username"
 			})
 		}
-		if (!isValidEmail(email)) {
+		if (email && !isValidEmail(email)) {
 			return fail(400, { message: "Invalid email" })
 		}
-		if (typeof password !== "string" || password.length < 6 || username.length > 255) {
+		if (typeof password !== "string" || password.length < 6 || password.length > 255) {
 			return fail(400, {
 				message: "Invalid password"
 			})
@@ -42,7 +45,7 @@ export const actions: Actions = {
 		// }
 
 		try {
-			if (username) {
+			if (username && !email) {
 				const user = await auth.createUser({
 					key: {
 						providerId: "username",
@@ -100,17 +103,20 @@ export const actions: Actions = {
 		const password = formData.get("password")
 
 		// Maybe use Zod for authentication checks instead?
-		if (typeof username !== "string" || username.length < 4 || username.length > 31) {
+		if (
+			username &&
+			(typeof username !== "string" || username.length < 4 || username.length > 31)
+		) {
 			return fail(400, {
 				message: "Invalid username"
 			})
 		}
-		if (typeof email !== "string" || email.length < 1 || email.length > 255) {
+		if (email && (typeof email !== "string" || email.length < 1 || email.length > 255)) {
 			return fail(400, {
 				message: "Invalid email"
 			})
 		}
-		if (typeof password !== "string" || password.length < 6 || username.length > 255) {
+		if (typeof password !== "string" || password.length < 6 || password.length > 255) {
 			return fail(400, {
 				message: "Invalid password"
 			})

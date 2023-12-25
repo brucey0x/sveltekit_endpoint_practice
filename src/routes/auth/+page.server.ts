@@ -51,7 +51,7 @@ export const actions: Actions = {
 				userId: user.userId,
 				attributes: {}
 			})
-			locals.auth.setSession(session)
+			locals.auth.setSession(session) // set session cookie
 		} catch (error) {
 			console.error(error)
 			return fail(400, {

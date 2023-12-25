@@ -7,7 +7,7 @@
 
 	<p>Login or create an account to get started.</p>
 
-	<h2 class="mt-8 text-xl">Username & password</h2>
+	<!-- <h2 class="mt-8 text-xl">Username & password</h2>
 	<form
 		method="POST"
 		action="/auth?/login"
@@ -22,7 +22,7 @@
 		<button formaction="/auth?/signup" class=" rounded-sm border border-white bg-zinc-700 p-1"
 			>Or, create account</button
 		>
-	</form>
+	</form> -->
 	<h2 class="mt-8 text-xl">Email & password</h2>
 	<form
 		method="POST"

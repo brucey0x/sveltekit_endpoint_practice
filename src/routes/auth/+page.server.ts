@@ -46,21 +46,21 @@ export const actions: Actions = {
 
 		try {
 			if (username && !email) {
-				const user = await auth.createUser({
-					key: {
-						providerId: "username",
-						providerUserId: username.toLowerCase(),
-						password
-					},
-					attributes: {
-						username
-					}
-				})
-				const session = await auth.createSession({
-					userId: user.userId,
-					attributes: {}
-				})
-				locals.auth.setSession(session) // set session cookie
+				// const user = await auth.createUser({
+				// 	key: {
+				// 		providerId: "username",
+				// 		providerUserId: username.toLowerCase(),
+				// 		password
+				// 	},
+				// 	attributes: {
+				// 		username
+				// 	}
+				// })
+				// const session = await auth.createSession({
+				// 	userId: user.userId,
+				// 	attributes: {}
+				// })
+				// locals.auth.setSession(session) // set session cookie
 			}
 
 			if (!username && email) {

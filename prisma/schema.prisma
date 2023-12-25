@@ -19,9 +19,8 @@ model Post {
 
 model User {
   id                       String                     @id @unique
-  username                 String?                    @unique
-  email                    String?                    @unique
-  email_verified           Boolean? // Might have to be int since SQLite doesn't support bool and only int, however I think Prisma can convert this for me
+  email                    String                     @unique
+  email_verified           Boolean // Might have to be int since SQLite doesn't support bool and only int, however I think Prisma can convert this for me
   key                      Key[]
   auth_session             Session[]
   Email_Verification_Token Email_Verification_Token[]

@@ -1,4 +1,15 @@
-# Challenges
+# Roadmap
+
+## Features
+
+-   [] Get username & email authentication to work
+-   [] Add oAuth
+-   [] Integrate Zod form validation
+-   [] Allow creation of custom posts
+-   [] Allow editing of custom posts
+-   [] Allow deletion of custom posts
+
+## Challenges
 
 -   [ ] Add Lucia authentication using the `load` function with my new understanding. Learn what `locals` do and how I can use these to access the user and session throughout the application.
 
@@ -14,11 +25,15 @@ GET is used to receive data from a server, POST when you want to send data to a 
 
 Server-side rendered pages are better for SEO since the code will be available for crawlers. But it's typically slower than CSR, if I understand correctly. I need to research this.
 
+## 2023-12-25
+
+I tried to integrate both username & email with password, however couldn't get it to work. One workaround could be to simply use email authentication. I'd still need to try the email verification and password recovery.
+
+Tried setting up only email & pw authentication and unfortunately couldn't get it to work. Keeps asking for `username` as password despite changing the database schema, types and migrating, pushing and resetting database. Nothing seems to work.
+
 ## 2023-12-16
 
 Going to integrate Lucia auth for practice. Simple library that's originally built to be a less bloated auth option for SvelteKit.
-
-
 
 ## 2023-12-15
 

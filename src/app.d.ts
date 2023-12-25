@@ -18,9 +18,8 @@ declare global {
 		type Auth = import("$lib/server/lucia").Auth
 		type DatabaseUserAttributes = {
 			// Only additional non-essential fields should be defined here
-			username?: string
-			email?: string
-			email_verified?: boolean
+			email: string
+			email_verified: boolean
 		}
 		type DatabaseSessionAttributes = Record<string, never>
 	}

@@ -14,7 +14,6 @@ export const auth = lucia({
 	}),
 	getUserAttributes: (data) => {
 		return {
-			username: data.username,
 			email: data.email,
 			email_verified: data.email_verified // might need to adjust if stored as an integer
 		}
